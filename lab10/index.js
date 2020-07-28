@@ -2,7 +2,7 @@ let header = document.querySelector('header');
 let section = document.querySelector('section');
 
 
-let requestURL = "https://raw.githubusercontent.com/CharmiShah21/charmishah21.github.io/master/products.json";
+let requestURL = "https://raw.githubusercontent.com/CharmiShah21/charmishah21.github.io/master/lab10/products.json";
 
 let request = new XMLHttpRequest();
 
