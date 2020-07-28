@@ -1,80 +1,87 @@
 * {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, Helvetica, sans-serif;
-  }
-  
-  html {
-    height: 100%;
-  }
-  
-  body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-  }
-  
-  .todo-container {
-    background-color: coral;
-    padding: 10px 20px 10px 20px;
-    width: 500px;
-  }
-  
-  .todo-container__title {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    color: #fff;
-    line-height: 35px;
-    border-bottom: 1px solid #fff;
-  }
-  
-  .todo-input {
-    width: 80%;
-    margin: 10px;
-    border: none;
-    border-bottom: 1px solid #fff;
-    padding: 10px;
-  }
-  
-  .todo-container__content {
-    display: flex;
-  }
-  
-  .todo-input-button {
-    height: 38px;
-    margin-top: 8px;
-    width: 100px;
-  }
-  
-  .todo-container__list {
-    display: flex;
-    align-items: center;
-    border: 1px solid #fff;
-    padding: 10px;
-    margin: 5px;
-  }
-  
-  .todo-name {
-    color: #fff;
-    padding-left: 40px;
-  }
-  
-  .todo-delete-button {
-    margin-left: 40px;
-    padding: 10px;
-    width: 90px;
-  }
-  
-  .todo-checkbox {
-    width: 20px;
-    height: 20px;
-  }
-  
-  .completed {
-    color: black;
-    text-decoration: line-through;
-  }
-  
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.todo-container {
+  background-color: coral;
+  padding: 10px 20px 10px 20px;
+  width: 600px;
+}
+
+.todo-container__title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: #fff;
+  line-height: 35px;
+  border-bottom: 1px solid #fff;
+}
+
+.todo-input {
+  width: 80%;
+  margin: 10px;
+  border: none;
+  border-bottom: 1px solid #fff;
+  padding: 10px;
+}
+
+.todo-container__content {
+  display: flex;
+}
+
+.todo-input-button {
+  height: 38px;
+  margin-top: 8px;
+  width: 100px;
+}
+
+.todo-container__list {
+  display: flex;
+  align-items: center;
+  border: 1px solid #fff;
+  padding: 10px;
+  margin: 5px;
+}
+
+.todo-container__list:hover {
+  cursor: move;
+}
+
+.over {
+  transform: scale(1.1, 1.1);
+}
+
+.todo-name {
+  color: #fff;
+  padding-left: 40px;
+}
+
+.todo-delete-button {
+  margin-left: 40px;
+  padding: 10px;
+  width: 90px;
+}
+
+.todo-checkbox {
+  width: 20px;
+  height: 20px;
+}
+
+.completed {
+  color: black;
+  text-decoration: line-through;
+}
