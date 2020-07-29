@@ -1,7 +1,10 @@
 let header = document.querySelector('header');
 let section = document.querySelector('section');
 
-
+/**
+ * This function is a helper function to fetch different products based on type
+ * @param {String} type type of product
+ */
 function fetchProducts(type) {
     fetch(`https://makeup-api.herokuapp.com/api/v1/products.json?brand=covergirl&product_type=${type}`)
         .then(response => response.json())
@@ -10,6 +13,10 @@ function fetchProducts(type) {
         })
 }
 
+/**
+ * This function will render products on the screen
+ * @param {Array} data array of products
+ */
 function renderProducts(data) {
 
     for (let i = 0; i < data.length; i++) {
