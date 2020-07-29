@@ -3,7 +3,7 @@ let section = document.querySelector('section');
 
 
 function fetchProducts(type) {
-    fetch(`http://makeup-api.herokuapp.com/api/v1/products.json?brand=covergirl&product_type=${type}`)
+    fetch(`https://makeup-api.herokuapp.com/api/v1/products.json?brand=covergirl&product_type=${type}`)
         .then(response => response.json())
         .then((data) => {
             renderProducts(data);
