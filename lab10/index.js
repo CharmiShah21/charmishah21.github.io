@@ -2,34 +2,17 @@ let header = document.querySelector('header');
 let section = document.querySelector('section');
 
 
-let requestURL = "https://raw.githubusercontent.com/CharmiShah21/charmishah21.github.io/master/lab10/products.json";
-
-let request = new XMLHttpRequest();
-
-request.open('GET', requestURL);
-
-request.responseType = 'json';
-request.send();
-
-request.onload = function () {
-    const jsonObj = request.response;
-    populateHeader(jsonObj);
-    renderTopDeals(jsonObj);
+function fetchProducts(type) {
+    fetch(`http://makeup-api.herokuapp.com/api/v1/products.json?brand=covergirl&product_type=${type}`)
+        .then(response => response.json())
+        .then((data) => {
+            renderProducts(data);
+        })
 }
 
-function populateHeader(jsonObj) {
-    let headerH1 = document.createElement('h1');
-    headerH1.textContent = jsonObj['companyName'];
-    header.appendChild(headerH1);
+function renderProducts(data) {
 
-    let headpara = document.createElement('p');
-    headpara.textContent = jsonObj['headOffice'];
-    header.appendChild(headpara);
-}
-
-function renderTopDeals(jsonObj) {
-    let topDeals = jsonObj['topDeals'];
-    for (let i = 0; i < topDeals.length; i++) {
+    for (let i = 0; i < data.length; i++) {
         let article = document.createElement('article');
         let h2 = document.createElement('h2');
         let img = document.createElement('img');
@@ -38,16 +21,19 @@ function renderTopDeals(jsonObj) {
         let list = document.createElement('ul');
 
 
-        img.setAttribute('src', 'images/' + topDeals[i].image);
-        img.setAttribute('alt', topDeals[i].name);
-        h2.textContent = topDeals[i].name;
-        p1.textContent = `$${topDeals[i].price}`;
-        p2.textContent = topDeals[i].description;
+        img.setAttribute('src', data[i].image_link);
+        img.setAttribute('alt', data[i].name);
+        h2.textContent = data[i].name;
+        p1.textContent = `$${data[i].price}`;
+        p2.textContent = data[i].description;
 
-        let features = topDeals[i].features || [];
-        for (let j = 0; j < features.length; j++) {
+        let colors = data[i].product_colors || [];
+        for (let j = 0; j < colors.length; j++) {
             let listItem = document.createElement('li');
-            listItem.textContent = features[j];
+            listItem.style.backgroundColor = colors[j].hex_value;
+            listItem.style.height = 100;
+            listItem.style.width = 100;
+            listItem.margin = 10;
             list.appendChild(listItem);
         }
 
@@ -59,3 +45,8 @@ function renderTopDeals(jsonObj) {
         section.appendChild(article);
     }
 }
+
+
+fetchProducts('lipstick');
+fetchProducts('eyeliner');
+
