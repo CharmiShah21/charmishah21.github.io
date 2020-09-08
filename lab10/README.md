@@ -1,2 +1,2 @@
 # charmishah21.github.io
-This is my project
+Made interactive webpage and implemented tweeter Apis (Thirdparty Api).
